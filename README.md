@@ -16,7 +16,7 @@ A full-stack blogging platform built with Python and Flask. This app serves as a
 
 * **User Authentication:** Login and registration using `Werkzeug` (pbkdf2:sha256 with salting) and `Flask-Login` for session management.
 * **Role-Based Access Control:** Custom decorators (`@admin_only`) ensure only the administrator can Create, Edit, or Delete posts.
-* **Database Relationships:** complex `One-to-Many` relationships linking **Users**, **Blog Posts**, and **Comments** via SQLAlchemy.
+* **Database Relationships:** complex `One-to-Many` relationships linking **Users**, **Blog Posts**, and **Comments** via `SQLAlchemy`.
 * **Rich Text Editor:** `CKEditor` for formatting blog posts.
 * **Security:** `Bleach` implementation to sanitize comments and prevent XSS attacks. 
 * **Dynamic UI:** Responsive design using Bootstrap 5 and Jinja2 templating.
