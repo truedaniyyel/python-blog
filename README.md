@@ -22,14 +22,46 @@ A full-stack blogging platform built with Python and Flask. This app serves as a
 * **Dynamic UI:** Responsive design using `Bootstrap 5` and `Jinja2` templating.
 * **Gravatar Support:** auto-generated user avatars.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Backend:** Python, Flask
 * **Database:** SQLite, SQLAlchemy
 * **Frontend:** HTML5, CSS3, Bootstrap 5, Jinja2
 * **Forms:** WTForms, Flask-WTF
 
-## 🚀 How to Run Locally
+## Database Schema
+```mermaid
+erDiagram
+    User ||--o{ BlogPost : "writes"
+    User ||--o{ Comment : "writes"
+    BlogPost ||--o{ Comment : "has"
+
+    User {
+        int id PK
+        string name
+        string email
+        string password
+    }
+
+    BlogPost {
+        int id PK
+        int author_id FK
+        string title
+        string subtitle
+        string date
+        text body
+        string img_url
+    }
+
+    Comment {
+        int id PK
+        text text
+        int author_id FK
+        int post_id FK
+    }
+```
+
+## How to Run Locally
 
 
 ### 1. Clone the repository
@@ -55,7 +87,7 @@ DB_URI=your_db_uri_here
 python main.py
 ```
 
-## ☁️ Deployment & Production
+## Deployment & Production
 You can run this project on platforms like Render, Railway, or Heroku.
 
 ### 1. WSGI Server
