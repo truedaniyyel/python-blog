@@ -19,7 +19,7 @@ A full-stack blogging platform built with Python and Flask. This app serves as a
 * **Database Relationships:** `One-to-Many` relationships linking **Users**, **Blog Posts**, and **Comments** via `SQLAlchemy`.
 * **Rich Text Editor:** `CKEditor` for formatting blog posts.
 * **Security:** `Bleach` implementation to sanitize comments and prevent XSS attacks. 
-* **Dynamic UI:** Responsive design using Bootstrap 5 and Jinja2 templating.
+* **Dynamic UI:** Responsive design using `Bootstrap 5` and `Jinja2` templating.
 * **Gravatar Support:** auto-generated user avatars.
 
 ## 🛠️ Tech Stack
