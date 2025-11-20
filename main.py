@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
 from datetime import date
-from flask import Flask, abort, render_template, redirect, url_for, flash
+import smtplib
+from flask import Flask, abort, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 import hashlib
@@ -94,6 +95,21 @@ def admin_only(f):
 
     return decorated_function
 
+
+def send_email(name, email, phone, message):
+    email_message = f"Subject:New Contact Form Submission\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
+
+    my_email = os.environ.get("MY_EMAIL")
+    password = os.environ.get("MY_PASSWORD")
+
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+        connection.starttls()
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email,
+            to_addrs=my_email,
+            msg=email_message
+        )
 
 # Custom filter to generate Gravatar URL
 @app.template_filter("gravatar")
@@ -251,9 +267,14 @@ def about():
     return render_template("about.html", current_user=current_user)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html", current_user=current_user)
+    if request.method == "POST":
+        data = request.form
+        send_email(data["name"], data["email"], data["phone"], data["message"])
+        return render_template("contact.html", msg_sent=True, current_user=current_user)
+
+    return render_template("contact.html", msg_sent=False, current_user=current_user)
 
 
 if __name__ == "__main__":
