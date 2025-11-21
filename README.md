@@ -1,7 +1,7 @@
 # Python Flask Blog App
 
 ![Python](https://img.shields.io/badge/Python-3.13%2B-blue)
-![Flask](https://img.shields.io/badge/Flask-3.0-green)
+![Flask](https://img.shields.io/badge/Flask-3.1-green)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
 
