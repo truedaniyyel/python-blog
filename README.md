@@ -5,6 +5,8 @@
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
 
+![demo-blog](https://github.com/user-attachments/assets/b8d1e8a6-9b8f-48ee-acd2-361bd871b23b)
+
 A full-stack blogging platform built with Python and Flask. This app serves as a technical showcase of backend development skills, including secure authentication, relationship-based database modeling, and a RESTful structure.
 
 > **Note:** This is a portfolio project. For my active personal blog, please visit [Daniel Adrian's site](https://truedaniyyel.com).
